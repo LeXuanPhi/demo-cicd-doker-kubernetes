@@ -8,7 +8,4 @@ public class DemoCicdDockerKubernetesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoCicdDockerKubernetesApplication.class, args);
 	}
-	public static void transien(){
-
-	}
 }
