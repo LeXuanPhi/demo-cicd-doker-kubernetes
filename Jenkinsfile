@@ -29,6 +29,9 @@ pipeline {
                         sh 'docker login -u lexuanphi -p $PASSWORD'
                 }
             }
+            steps{
+                  sh 'docker push  lexuanphi/demo-cicd-docker-kubernetes'
+             }
         }
     }
 }
