@@ -34,9 +34,12 @@ pipeline {
 
         stage("ssh Server"){
             steps{
+
                 sshagent(['CONNECT_SERVER_KUBERNETES']) {
                         sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 3.86.230.238'
-                        sh "sshPut remote: remote, from: 'k8s-spring-boot-deployment.yml', into: '.' "
+                        def test = 'k8s-spring-boot-deployment.yml'
+                        def test1 = '.'
+                        sh 'sshPut remote: remote, from: ${test}, into: ${test1}'
                 }
             }
        }
