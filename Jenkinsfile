@@ -23,10 +23,9 @@ pipeline {
                 sh 'docker tag demo-cicd-docker-kubernetes lexuanphi/demo-cicd-docker-kubernetes:demo-cicd-docker-kubernetes'
             }
         }
-
-        withCredentials([string(credentialsId: 'DOCKER_ID', variable: 'PASSWORD')]) {
-           steps{
-                sh 'docker login -u lexuanphi -p $PASSWORD'
+        steps{
+            withCredentials([string(credentialsId: 'DOCKER_ID', variable: 'PASSWORD')]) {
+                    sh 'docker login -u lexuanphi -p $PASSWORD'
             }
         }
     }
