@@ -10,7 +10,9 @@ pipeline {
 //             }
 //         }
         stage('Build') {
-             sh 'mvn -Dmaven.test.failure.ignore=true clean'
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true clean'
+             }
         }
     }
 }
