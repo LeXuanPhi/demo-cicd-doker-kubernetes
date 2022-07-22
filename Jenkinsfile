@@ -10,7 +10,9 @@ pipeline {
 //             }
 //         }
         stage('Build') {
-                sh 'mvn -Dmaven.test.failure.ignore=true clean install'
+            stages {
+                    sh 'mvn -Dmaven.test.failure.ignore=true clean install'
+             }
         }
 
 //         stage("Docker build"){
