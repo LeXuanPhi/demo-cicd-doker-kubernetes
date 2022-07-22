@@ -4,11 +4,11 @@ pipeline {
             maven 'Maven 3.8.6'
         }
     stages {
-        stage('Clone code') {
-            steps {
-               git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/rahulwagh/spring-boot-docker.git'
-            }
-        }
+//         stage('Clone code') {
+//             steps {
+//                git credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/rahulwagh/spring-boot-docker.git'
+//             }
+//         }
         stage('Build') {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true clean install'
@@ -31,7 +31,6 @@ pipeline {
                 }
             }
         }
-
 //         stage("ssh Server"){
 //             steps{
 //                 sshagent(['CONNECT_SERVER_KUBERNETES']) {
