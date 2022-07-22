@@ -31,14 +31,15 @@ pipeline {
                 }
             }
         }
-//         stage("ssh Server"){
-//             steps{
+        stage("ssh Server"){
+            steps{
 //                 sshagent(['CONNECT_SERVER_KUBERNETES']) {
 //                         sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 3.86.230.238'
 //                         sh 'sshPut remote: remote, from: 'k8s-spring-boot-deployment.yml', into: '.' '
 //                 }
-//             }
-//        }
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'KUBERNETES_SERVER', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'k8s-spring-boot-deployment.yml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+       }
 
     }
 }
