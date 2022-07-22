@@ -27,11 +27,10 @@ pipeline {
             steps{
                 withCredentials([string(credentialsId: 'DOCKER_ID', variable: 'PASSWORD')]) {
                         sh 'docker login -u lexuanphi -p $PASSWORD'
+                        sh 'docker push  lexuanphi/demo-cicd-docker-kubernetes'
                 }
             }
-            steps{
-                  sh 'docker push  lexuanphi/demo-cicd-docker-kubernetes'
-             }
+
         }
     }
 }
