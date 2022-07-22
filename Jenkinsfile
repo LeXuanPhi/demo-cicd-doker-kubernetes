@@ -24,8 +24,10 @@ pipeline {
             }
         }
         stage("login"){
-            withCredentials([string(credentialsId: 'DOCKER_ID', variable: 'PASSWORD')]) {
-                    sh 'docker login -u lexuanphi -p $PASSWORD'
+            steps{
+                withCredentials([string(credentialsId: 'DOCKER_ID', variable: 'PASSWORD')]) {
+                        sh 'docker login -u lexuanphi -p $PASSWORD'
+                }
             }
         }
     }
