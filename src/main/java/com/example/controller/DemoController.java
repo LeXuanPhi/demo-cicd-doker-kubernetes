@@ -11,6 +11,7 @@ public class DemoController {
     @RequestMapping(value = "/demo")
     public String Demo(){
         logger.info("Tao test duoc roi");
+
         return "hello cicd-docker-kubernetes";
     }
 }
